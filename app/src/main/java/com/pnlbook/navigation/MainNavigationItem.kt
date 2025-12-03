@@ -1,34 +1,32 @@
 package com.pnlbook.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.CastConnected
-import androidx.compose.material.icons.outlined.Checklist
-import androidx.compose.material.icons.outlined.Dashboard
-import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.SignalCellularAlt
+import androidx.compose.material.icons.filled.Dashboard
+import androidx.compose.material.icons.filled.NetworkCheck
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.pnlbook.R
 
 sealed class MainNavigationItem(
     val screen: Screen,
-    val titleResId: Int,
+    val title: Int,
     val icon: ImageVector
 ) {
     object Connections : MainNavigationItem(
         screen = Screen.Connections,
-        titleResId = R.string.connections,
-        icon = Icons.Outlined.SignalCellularAlt
+        title = R.string.connections,
+        icon = Icons.Default.NetworkCheck
     )
 
     object Dashboard : MainNavigationItem(
         screen = Screen.Dashboard,
-        titleResId = R.string.dashboard,
-        icon = Icons.Outlined.Dashboard
+        title = R.string.dashboard,
+        icon = Icons.Default.Dashboard
     )
 
     object Settings : MainNavigationItem(
         screen = Screen.Settings,
-        titleResId = R.string.Settings,
-        icon = Icons.Outlined.Settings
+        title = R.string.settings,
+        icon = Icons.Default.Settings
     )
 }

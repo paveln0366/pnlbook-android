@@ -2,5 +2,7 @@
     <string name="app_name">Pnlbook</string>
     <string name="connections">Connections</string>
     <string name="dashboard">Dashboard</string>
-    <string name="Settings">Settings</string>
+    <string name="settings">Settings</string>
+    <string name="trades">Trades</string>
+    <string name="statistics">Statistics</string>
 </resources>

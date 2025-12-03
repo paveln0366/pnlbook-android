@@ -5,7 +5,6 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.pnlbook.domain.Connection
 
 class NavigationState(
     val navHostController: NavHostController
@@ -20,19 +19,13 @@ class NavigationState(
             restoreState = true
         }
     }
-
-    fun navigateToTrades(connection: Connection) {
-        navHostController.navigate(Screen.Trades.getRoutWithArgs(connection))
-    }
-
-    fun navigateToStatistics(connection: Connection) {
-        navHostController.navigate(Screen.Statistics.getRoutWithArgs(connection))
-    }
 }
 
 @Composable
 fun rememberNavigationState(
     navHostController: NavHostController = rememberNavController()
 ): NavigationState {
-    return remember { NavigationState(navHostController) }
+    return remember {
+        NavigationState(navHostController)
+    }
 }
