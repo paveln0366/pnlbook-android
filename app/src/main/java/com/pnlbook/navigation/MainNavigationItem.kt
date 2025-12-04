@@ -12,8 +12,8 @@ sealed class MainNavigationItem(
     val title: Int,
     val icon: ImageVector
 ) {
-    object Connections : MainNavigationItem(
-        screen = Screen.Connections,
+    object ConnectionsContainer : MainNavigationItem(
+        screen = Screen.ConnectionsContainer,
         title = R.string.connections,
         icon = Icons.Default.NetworkCheck
     )

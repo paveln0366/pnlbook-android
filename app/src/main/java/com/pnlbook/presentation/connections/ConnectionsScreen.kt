@@ -26,14 +26,17 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pnlbook.R
+import com.pnlbook.domain.Connection
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ConnectionsScreen(
-    viewModel: ConnectionsViewModel
+    onTradesClickListener: (Connection) -> Unit
 ) {
+    val viewModel: ConnectionsViewModel = viewModel()
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember {
         SnackbarHostState()
@@ -92,7 +95,12 @@ fun ConnectionsScreen(
                     backgroundContent = {},
                     enableDismissFromStartToEnd = false
                 ) {
-                    ConnectionCard(connection)
+                    ConnectionCard(
+                        connection = connection,
+                        onTradesClickListener = {
+                            onTradesClickListener(connection)
+                        },
+                    )
                 }
             }
         }

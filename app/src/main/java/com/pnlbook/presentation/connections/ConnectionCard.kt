@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.CardTravel
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -23,15 +24,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.pnlbook.R
 import com.pnlbook.domain.Connection
 
-//@Preview
 @Composable
 fun ConnectionCard(
-    connection: Connection
+    connection: Connection,
+    onTradesClickListener: (Connection) -> Unit
 ) {
     Card {
         Row(
@@ -48,24 +52,35 @@ fun ConnectionCard(
                     .background(color = MaterialTheme.colorScheme.secondary)
                     .padding(8.dp),
                 painter = painterResource(R.drawable.logo_binance),
-                contentDescription = null
+                contentDescription = null,
+                contentScale = ContentScale.Fit
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(text = "Binance Futures")
                 Spacer(modifier = Modifier.height(16.dp))
                 Row {
-                    Button(onClick = {}) {
+                    Button(onClick = { onTradesClickListener(connection) }) {
                         Image(
                             imageVector = Icons.Default.Checklist,
-                            contentDescription = null
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(Color.White)
                         )
                     }
                     Spacer(modifier = Modifier.width(8.dp))
                     Button(onClick = {}) {
                         Image(
                             imageVector = Icons.Default.BarChart,
-                            contentDescription = null
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(Color.White)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Button(onClick = {}) {
+                        Image(
+                            imageVector = Icons.Default.CardTravel,
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(Color.White)
                         )
                     }
                 }

@@ -10,12 +10,7 @@ class ConnectionsViewModel(application: Application) : AndroidViewModel(applicat
 
     private val data = mutableListOf<Connection>().apply {
         repeat(10) {
-            add(
-                Connection(
-                    id = it,
-
-                    )
-            )
+            add(Connection(id = it))
         }
     }
     private val _connections = MutableLiveData<List<Connection>>(data)
