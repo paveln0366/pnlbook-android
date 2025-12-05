@@ -1,9 +1,6 @@
 package com.pnlbook.presentation.dashboard
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -14,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pnlbook.R
+import com.pnlbook.presentation.chart.BtcChartScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -30,25 +28,6 @@ fun DashboardScreen() {
             )
         }
     ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier.padding(paddingValues),
-            contentPadding = PaddingValues(
-                top = 16.dp,
-                start = 16.dp,
-                end = 16.dp,
-                bottom = 72.dp
-            ),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            item {
-                Text(text = "DashboardScreen")
-            }
-            item {
-                Text(text = "DashboardScreen")
-            }
-            item {
-                Text(text = "DashboardScreen")
-            }
-        }
+        BtcChartScreen(paddingValues)
     }
 }
